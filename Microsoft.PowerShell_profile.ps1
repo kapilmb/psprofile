@@ -11,8 +11,9 @@ Function Get-Prompt
 
 $prompFunc = Get-Item -Path Function:\Get-Prompt
 Set-Item -Path Function:\prompt -Value $prompFunc
-Remove-Item -Path Function:\Get-Prompt
-Remove-Item -Path Function:\Get-Prompt1
 
 # Sets the mode to emacs
 Set-PSReadlineOption -EditMode Emacs
+
+# Sets the usermodule path variable for quick access to the location
+Set-Variable -Name UserPSModulePath -Value (Join-Path (Split-Path $profile) Modules)
